@@ -4,9 +4,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-
 import cumt.ec.util.*;
 import cumt.ec.instrument.common.daoImpl.BaseDaoHibernate4;
 import cumt.ec.instrument.dao.GuitarDao;
@@ -64,20 +64,13 @@ public class GuitarDaoImpl extends BaseDaoHibernate4 implements GuitarDao {
 //			}
 //		return array;
 //	} 
-	public JSONArray searchGuitar(String numStrings,String builder,String model,
+	@SuppressWarnings("rawtypes")
+	public ArrayList<Guitar> searchGuitar(String numStrings,String builder,String model,
 			String backWood,String topWood){
-		 Inventory inv=new Inventory();
-		 String hql="select distinct g from Guitar g";
-		 //List<Guitar> guitars = new LinkedList<Guitar>();
-		 inv.setGuitars(getSessionFactory().getCurrentSession().createQuery(hql).list());
-		 Guitar searchGuitar=new Guitar();
-		 searchGuitar.setTopWood(topWood);
-		 searchGuitar.setBackWood(backWood);
-		 searchGuitar.setBuilder(builder);
-		 searchGuitar.setModel(model);
-		 searchGuitar.setNumStrings(numStrings);
-
-		 return inv.search(searchGuitar);
+		String hql="select distinct g from Guitar g";
+		ArrayList guitars = new ArrayList<Guitar>();
+		guitars=(ArrayList) getSessionFactory().getCurrentSession().createQuery(hql).list();
+		return guitars;
 	}
 	
 }

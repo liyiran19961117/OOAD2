@@ -1,9 +1,13 @@
 package cumt.ec.instrument.dao;
+import java.util.ArrayList;
 
-import net.sf.json.JSONArray;
+import cumt.ec.instrument.common.dao.BaseDao;
+import cumt.ec.instrument.domain.Guitar;
+
+//import net.sf.json.JSONArray;
 
 public interface GuitarDao {
-	public JSONArray searchGuitar(String numStrings,String builder,String model,
+	public ArrayList<Guitar> searchGuitar(String numStrings,String builder,String model,
 			String backWood,String topWood);
 
 }

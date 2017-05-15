@@ -21,15 +21,15 @@ public class Inventory extends BaseDaoHibernate4{
 	    guitars = new LinkedList();
 	  }
 @SuppressWarnings("unchecked")
-public JSONArray search(Guitar searchSpec) {
-	 JSONArray array=new JSONArray();
+public List search(Guitar searchSpec) {
+	 List matchingGuitars = new LinkedList();
 	// List<Guitar> guitars = new LinkedList<Guitar>();
     for (Iterator<Guitar> i = guitars.iterator(); i.hasNext(); ) {
       Guitar guitar = (Guitar)i.next(); 
       if (guitar.matches(searchSpec))
-        array.add(guitar);
+    	  matchingGuitars.add(guitar);
     }
-    return array;
+    return matchingGuitars;
   }
 }
 
