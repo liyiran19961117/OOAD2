@@ -30,7 +30,7 @@ public class Guitar implements java.io.Serializable{
 	
 	@Column(name="topWood")
 	private String topWood;
-	
+	 
 	public Integer getId() {
 		return id;
 	}

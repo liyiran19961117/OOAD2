@@ -9,7 +9,7 @@ import net.sf.json.JSONArray;
 
 @SuppressWarnings("rawtypes")
 public class Inventory extends BaseDaoHibernate4{
-	 private List guitars;
+	 private List<Guitar> guitars;
 	 
 	  public List getGuitars() {
 		return guitars;
@@ -20,6 +20,15 @@ public class Inventory extends BaseDaoHibernate4{
 	public Inventory() {
 	    guitars = new LinkedList();
 	  }
+	public void addGuitar(String numStrings,String builder,String model,String backWood,String topWood) {
+           Guitar guitar = new Guitar();
+           guitar.setBackWood(backWood);
+           guitar.setBuilder(builder);
+           guitar.setModel(model);
+           guitar.setNumStrings(numStrings);
+           guitar.setTopWood(topWood);
+           guitars.add(guitar);
+}
 @SuppressWarnings("unchecked")
 public List search(Guitar searchSpec) {
 	 List matchingGuitars = new LinkedList();
@@ -32,4 +41,3 @@ public List search(Guitar searchSpec) {
     return matchingGuitars;
   }
 }
-

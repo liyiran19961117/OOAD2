@@ -15,7 +15,6 @@ public class GuitarServiceImpl implements GuitarService {
 		public void setGuitarDao(GuitarDao guitarDao) {
 			this.guitarDao = guitarDao;
 		}
-
 	@Override
 	public JSONArray searchGuitar(String numStrings,String builder,String model,
 			String backWood,String topWood) {
